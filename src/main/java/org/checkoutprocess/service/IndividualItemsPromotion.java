@@ -4,6 +4,9 @@ import org.checkoutprocess.model.Item;
 
 import java.util.List;
 
+/*
+ * It will apply a discount when a customer buys a certain number of the same sku
+ */
 public class IndividualItemsPromotion implements BasePromotionLevel {
     private final String sku;
     private final int requiredQty;
