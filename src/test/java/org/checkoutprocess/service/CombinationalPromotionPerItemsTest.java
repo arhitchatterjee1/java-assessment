@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CombinationalPromotionPerItemsTest {
 
     @Test
-    void combinationalPromotionTest1(){
+    void combinationalPromotionTestWithCombinedProduct(){
         Product product1 = new Product(20,"C");
         Product product2 = new Product(15,"D");
         Item item1 = new Item(product1,1);

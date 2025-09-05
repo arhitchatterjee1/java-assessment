@@ -6,29 +6,29 @@ package org.checkoutprocess.model;
 public class Item {
     private Product product; //defines product
     private int quantity; //defines the quantity of the Product
-    private int unitPrice; // defines the unit level price of the product
-    private int totalPrice; // defines the total price of the product
+    private double unitPrice; // defines the unit level price of the product
+    private double totalPrice; // defines the total price of the product
 
-    public Item(int quantity, Product product, int unitPrice, int totalPrice) {
+    public Item(int quantity, Product product, double unitPrice, double totalPrice) {
         this.quantity = quantity;
         this.product = product;
         this.unitPrice = unitPrice;
         this.totalPrice = totalPrice;
     }
 
-    public int getUnitPrice() {
+    public double getUnitPrice() {
         return unitPrice;
     }
 
-    public void setUnitPrice(int unitPrice) {
+    public void setUnitPrice(double unitPrice) {
         this.unitPrice = unitPrice;
     }
 
-    public int getTotalPrice() {
+    public double getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(int totalPrice) {
+    public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
 
@@ -52,8 +52,9 @@ public class Item {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public int setQuantity(int quantity) {
         this.quantity = quantity;
+        return quantity;
     }
 
 }

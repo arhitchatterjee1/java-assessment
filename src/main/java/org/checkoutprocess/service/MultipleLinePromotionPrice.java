@@ -10,7 +10,7 @@ import java.util.List;
 public class MultipleLinePromotionPrice implements Promotion {
     private final String sku1;
     private final String sku2;
-    private final int comboPrice;
+    private final double comboPrice;
 
     public MultipleLinePromotionPrice(String sku1, String sku2, int comboPrice) {
         this.sku1 = sku1;
@@ -45,7 +45,7 @@ public class MultipleLinePromotionPrice implements Promotion {
         //check if both items are in stock
         if (item1 != null && item2 != null) {
             //calculate the number of pairs
-            int pairsOfItem = Math.min(item1.getQuantity(), item2.getQuantity());
+            int pairsOfItem = (int) Math.min(item1.getQuantity(), item2.getQuantity());
 
             total += pairsOfItem * comboPrice;
 

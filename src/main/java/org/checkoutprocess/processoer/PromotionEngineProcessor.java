@@ -30,12 +30,12 @@ public class PromotionEngineProcessor {
      * @return the final value
      * @throws PromotionException
      */
-    public int calculateTotal(List<Item> items) throws PromotionException {
+    public double calculateTotal(List<Item> items) throws PromotionException {
         if (ObjectUtils.isEmpty(items)) {
             throw new PromotionException("items is Empty in the cart");
         }
 
-        int total = 0;
+        double total = 0;
 
         //After each Promotion layer
         for (Promotion promotionLevel : promotionLevels) {

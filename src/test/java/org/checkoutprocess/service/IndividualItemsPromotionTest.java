@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class IndividualItemsPromotionTest {
 
     @Test
-    void individualItemsPromotionTest1(){
+    void individualItemsPromotionTest_for_individualItems(){
         Product product = new Product(50,"A");
         Item item = new Item(product,2);
         List<Item> items = new ArrayList<>();
@@ -24,5 +24,6 @@ class IndividualItemsPromotionTest {
         assertEquals(100, total);
 
     }
+
 
 }

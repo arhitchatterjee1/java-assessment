@@ -16,6 +16,7 @@ import java.util.Scanner;
 Main Class for Running The Program
  */
 public class PromotionEngineService {
+
     public static void main(String[] args) throws PromotionException {
         Scanner scanner = new Scanner(System.in);
 
@@ -53,7 +54,7 @@ public class PromotionEngineService {
         promotionEngineProcessor.addPromotion(new MultipleLinePromotionPrice("C", "D", 30));
 
         //calculate total
-        int total = promotionEngineProcessor.calculateTotal(items);
+        double total = promotionEngineProcessor.calculateTotal(items);
 
         System.out.println("final total Price: " + total);
     }

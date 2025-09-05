@@ -14,41 +14,78 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PromotionEngineProcessorTest {
-    private PromotionEngineProcessor promotionEngineProcessor;
-    private List<Item> itemList;
+    private PromotionEngineProcessor processor;
+    private Product A, B, C, D;
 
     @BeforeEach
     void setup() throws PromotionException {
-        promotionEngineProcessor = new PromotionEngineProcessor();
-        itemList = new ArrayList<>();
+        processor = new PromotionEngineProcessor();
 
-        promotionEngineProcessor.addPromotion(new SingleLinePromotionPrice("A", 3, 130));
-        promotionEngineProcessor.addPromotion(new SingleLinePromotionPrice("B", 2, 45));
-        promotionEngineProcessor.addPromotion(new MultipleLinePromotionPrice("C", "D", 30));
+        //Define the Products
+
+        A = new Product(50, "A");
+        B = new Product(30, "B");
+        C = new Product(20, "C");
+        D = new Product(50, "D");
+
+        // Adding Promotions
+
+        processor.addPromotion(new SingleLinePromotionPrice("A", 3, 130));
+        processor.addPromotion(new SingleLinePromotionPrice("B", 2, 45));
+        processor.addPromotion(new MultipleLinePromotionPrice("C", "D", 30));
+
     }
 
     @Test
-    void PromotionEngineProcessorTest1() throws PromotionException {
-        itemList.add(new Item(new Product(50, "A"), 1));
-        itemList.add(new Item(new Product(30, "B"), 1));
-        itemList.add(new Item(new Product(20, "C"), 1));
+    void shouldCalculate_Total_ForSimpleCart() throws PromotionException {
+        List<Item> items = new ArrayList<>();
+        items.add(new Item(A, 1));
+        items.add(new Item(B, 1));
+        items.add(new Item(C, 1));
 
-        int total = promotionEngineProcessor.calculateTotal(itemList);
+        double total = processor.calculateTotal(items);
 
         assertEquals(100, total);
     }
 
     @Test
-    void PromotionEngineProcessorTest2() throws PromotionException {
+    void shouldCalculate_Total_ForBulkPurchase() throws PromotionException {
+        List<Item> items = new ArrayList<>();
+        items.add(new Item(A, 5));
+        items.add(new Item(B, 5));
+        items.add(new Item(C, 1));
 
-        assertThrows(PromotionException.class, () -> promotionEngineProcessor.calculateTotal(null));
+        double total = processor.calculateTotal(items);
+
+        assertEquals(370, total);
 
     }
 
     @Test
-    void PromotionEngineProcessorTest3() throws PromotionException {
+    void shouldCalculate_Total_ForComboPurchase() throws PromotionException {
+        List<Item> items = new ArrayList<>();
+        items.add(new Item(A, 3));
+        items.add(new Item(B, 5));
+        items.add(new Item(C, 1));
+        items.add(new Item(D, 1));
 
-        assertThrows(PromotionException.class, () -> promotionEngineProcessor.addPromotion(null));
+        double total = processor.calculateTotal(items);
+
+        assertEquals(280, total);
+
+    }
+
+    @Test
+    void PromotionEngineProcessorTest_for_ExceptionHandling_ForAddingTotal() throws PromotionException {
+
+        assertThrows(PromotionException.class, () -> processor.calculateTotal(null));
+
+    }
+
+    @Test
+    void PromotionEngineProcessorTest_forExceptionHandling_for_addingPromotion() throws PromotionException {
+
+        assertThrows(PromotionException.class, () -> processor.addPromotion(null));
 
     }
 
