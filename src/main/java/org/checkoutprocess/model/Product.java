@@ -1,8 +1,11 @@
 package org.checkoutprocess.model;
 
+/**
+ * indicates the product of the item
+ */
 public class Product {
-    private int price;
-    private String sku;
+    private int price; //defines the Price of the Product
+    private String sku; //defines the skus of the product
 
     @Override
     public String toString() {
@@ -27,7 +30,6 @@ public class Product {
     public void setSku(String sku) {
         this.sku = sku;
     }
-
 
 
     public Product(int price, String sku) {

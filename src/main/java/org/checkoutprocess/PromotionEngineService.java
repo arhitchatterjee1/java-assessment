@@ -5,8 +5,8 @@ import org.checkoutprocess.Exception.PromotionException;
 import org.checkoutprocess.model.Item;
 import org.checkoutprocess.model.Product;
 import org.checkoutprocess.processoer.PromotionEngineProcessor;
-import org.checkoutprocess.service.CombinationalPromotionPerItems;
-import org.checkoutprocess.service.IndividualItemsPromotion;
+import org.checkoutprocess.service.MultipleLinePromotionPrice;
+import org.checkoutprocess.service.SingleLinePromotionPrice;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.Scanner;
 /*
 Main Class for Running The Program
  */
-public class ProgramLauncher {
+public class PromotionEngineService {
     public static void main(String[] args) throws PromotionException {
         Scanner scanner = new Scanner(System.in);
 
@@ -48,9 +48,9 @@ public class ProgramLauncher {
 
         PromotionEngineProcessor promotionEngineProcessor = new PromotionEngineProcessor();
 
-        promotionEngineProcessor.addPromotion(new IndividualItemsPromotion("A", 3, 130));
-        promotionEngineProcessor.addPromotion(new IndividualItemsPromotion("B", 2, 45));
-        promotionEngineProcessor.addPromotion(new CombinationalPromotionPerItems("C", "D", 30));
+        promotionEngineProcessor.addPromotion(new SingleLinePromotionPrice("A", 3, 130));
+        promotionEngineProcessor.addPromotion(new SingleLinePromotionPrice("B", 2, 45));
+        promotionEngineProcessor.addPromotion(new MultipleLinePromotionPrice("C", "D", 30));
 
         //calculate total
         int total = promotionEngineProcessor.calculateTotal(items);

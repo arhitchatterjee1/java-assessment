@@ -21,7 +21,7 @@ class CombinationalPromotionPerItemsTest {
         items.add(item1);
         items.add(item2);
 
-        CombinationalPromotionPerItems combinationalPromotionPerItems = new CombinationalPromotionPerItems("C", "D", 30);
+        MultipleLinePromotionPrice combinationalPromotionPerItems = new MultipleLinePromotionPrice("C", "D", 30);
 
         int total = combinationalPromotionPerItems.applyPromotion(items);
 

@@ -4,7 +4,7 @@ import org.checkoutprocess.model.Item;
 
 import java.util.List;
 
-public interface BasePromotionLevel {
+public interface Promotion {
     int applyPromotion(List<Item> items);
 
 }

@@ -7,12 +7,12 @@ import java.util.List;
 /*
  * It will apply a discount when a customer buys a certain number of the same sku
  */
-public class IndividualItemsPromotion implements BasePromotionLevel {
+public class SingleLinePromotionPrice implements Promotion {
     private final String sku;
     private final int requiredQty;
     private final int priceAfterPromotion;
 
-    public IndividualItemsPromotion(String sku, int requiredQty, int priceAfterPromotion) {
+    public SingleLinePromotionPrice(String sku, int requiredQty, int priceAfterPromotion) {
         this.sku = sku;
         this.requiredQty = requiredQty;
         this.priceAfterPromotion = priceAfterPromotion;
@@ -40,7 +40,6 @@ public class IndividualItemsPromotion implements BasePromotionLevel {
                 total += quantitySets * priceAfterPromotion + reminder * item.getProduct().getPrice();
 
                 item.setQuantity(0);
-
 
             }
         }

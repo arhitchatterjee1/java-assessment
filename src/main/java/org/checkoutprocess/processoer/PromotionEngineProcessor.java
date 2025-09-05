@@ -3,7 +3,7 @@ package org.checkoutprocess.processoer;
 import org.apache.commons.lang3.ObjectUtils;
 import org.checkoutprocess.Exception.PromotionException;
 import org.checkoutprocess.model.Item;
-import org.checkoutprocess.service.BasePromotionLevel;
+import org.checkoutprocess.service.Promotion;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,10 +12,10 @@ import java.util.List;
  * It calculates the final checkout total for a cart
  */
 public class PromotionEngineProcessor {
-    private final List<BasePromotionLevel> promotionLevels = new ArrayList<>();
+    private final List<Promotion> promotionLevels = new ArrayList<>();
 
     //Dynamically adding Promotions
-    public void addPromotion(BasePromotionLevel promotionLevel) throws PromotionException {
+    public void addPromotion(Promotion promotionLevel) throws PromotionException {
         if (promotionLevel == null) {
             throw new PromotionException("Promotion can't be null");
         }
@@ -27,7 +27,7 @@ public class PromotionEngineProcessor {
      * Applies all Promotions and returns final total
      *
      * @param items
-     * @return
+     * @return the final value
      * @throws PromotionException
      */
     public int calculateTotal(List<Item> items) throws PromotionException {
@@ -38,7 +38,7 @@ public class PromotionEngineProcessor {
         int total = 0;
 
         //After each Promotion layer
-        for (BasePromotionLevel promotionLevel : promotionLevels) {
+        for (Promotion promotionLevel : promotionLevels) {
             total += promotionLevel.applyPromotion(items);
         }
 

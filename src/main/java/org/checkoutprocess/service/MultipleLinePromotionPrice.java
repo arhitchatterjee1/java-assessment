@@ -7,12 +7,12 @@ import java.util.List;
 /*
     A combinational Promotion will give special price when tow different skus are brought together
  */
-public class CombinationalPromotionPerItems implements BasePromotionLevel {
+public class MultipleLinePromotionPrice implements Promotion {
     private final String sku1;
     private final String sku2;
     private final int comboPrice;
 
-    public CombinationalPromotionPerItems(String sku1, String sku2, int comboPrice) {
+    public MultipleLinePromotionPrice(String sku1, String sku2, int comboPrice) {
         this.sku1 = sku1;
         this.sku2 = sku2;
         this.comboPrice = comboPrice;

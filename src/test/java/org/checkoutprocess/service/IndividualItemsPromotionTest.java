@@ -18,7 +18,7 @@ class IndividualItemsPromotionTest {
         List<Item> items = new ArrayList<>();
         items.add(item);
 
-        IndividualItemsPromotion promotion = new IndividualItemsPromotion("A", 3, 130);
+        SingleLinePromotionPrice promotion = new SingleLinePromotionPrice("A", 3, 130);
         int total = promotion.applyPromotion(items);
 
         assertEquals(100, total);

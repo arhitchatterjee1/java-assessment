@@ -1,11 +1,10 @@
 package org.checkoutprocess.processoer;
 
-import com.sun.source.tree.AssertTree;
 import org.checkoutprocess.Exception.PromotionException;
 import org.checkoutprocess.model.Item;
 import org.checkoutprocess.model.Product;
-import org.checkoutprocess.service.CombinationalPromotionPerItems;
-import org.checkoutprocess.service.IndividualItemsPromotion;
+import org.checkoutprocess.service.MultipleLinePromotionPrice;
+import org.checkoutprocess.service.SingleLinePromotionPrice;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -23,9 +22,9 @@ class PromotionEngineProcessorTest {
         promotionEngineProcessor = new PromotionEngineProcessor();
         itemList = new ArrayList<>();
 
-        promotionEngineProcessor.addPromotion(new IndividualItemsPromotion("A", 3, 130));
-        promotionEngineProcessor.addPromotion(new IndividualItemsPromotion("B", 2, 45));
-        promotionEngineProcessor.addPromotion(new CombinationalPromotionPerItems("C", "D", 30));
+        promotionEngineProcessor.addPromotion(new SingleLinePromotionPrice("A", 3, 130));
+        promotionEngineProcessor.addPromotion(new SingleLinePromotionPrice("B", 2, 45));
+        promotionEngineProcessor.addPromotion(new MultipleLinePromotionPrice("C", "D", 30));
     }
 
     @Test
