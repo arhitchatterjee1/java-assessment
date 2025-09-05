@@ -46,4 +46,11 @@ class PromotionEngineProcessorTest {
 
     }
 
+    @Test
+    void PromotionEngineProcessorTest3() throws PromotionException {
+
+        assertThrows(PromotionException.class, () -> promotionEngineProcessor.addPromotion(null));
+
+    }
+
 }
