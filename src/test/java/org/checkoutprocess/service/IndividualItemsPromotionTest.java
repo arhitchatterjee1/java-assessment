@@ -41,7 +41,7 @@ class IndividualItemsPromotionTest {
 
     @Test
     void individualItemsPromotionTest_for_individualItems_With_Promption(){
-        Product product = new Product(130,"A");
+        Product product = new Product(50,"A");
         Item item = new Item(product,3);
         List<Item> items = new ArrayList<>();
         items.add(item);
@@ -49,7 +49,7 @@ class IndividualItemsPromotionTest {
         SingleLinePromotionPrice promotion = new SingleLinePromotionPrice("A", 3, 130);
         int total = promotion.applyPromotion(items);
 
-        assertEquals(150, total);
+        assertEquals(130, total);
 
     }
 
