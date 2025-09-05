@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CombinationalPromotionPerItemsTest {
 
     @Test
-    void combinationalPromotionTestWithCombinedProduct(){
+    void combinationalPromotionTestWithCombinedProduct_with_Promption(){
         Product product1 = new Product(20,"C");
         Product product2 = new Product(15,"D");
         Item item1 = new Item(product1,1);
@@ -26,6 +26,44 @@ class CombinationalPromotionPerItemsTest {
         int total = combinationalPromotionPerItems.applyPromotion(items);
 
         assertEquals(30, total);
+
+
+    }
+
+    @Test
+    void combinationalPromotionTestWithCombinedProduct_With_zeroQuantity(){
+        Product product1 = new Product(20,"C");
+        Product product2 = new Product(15,"D");
+        Item item1 = new Item(product1,0);
+        Item item2 = new Item(product2,0);
+        List<Item> items = new ArrayList<>();
+        items.add(item1);
+        items.add(item2);
+
+        MultipleLinePromotionPrice combinationalPromotionPerItems = new MultipleLinePromotionPrice("C", "D", 30);
+
+        int total = combinationalPromotionPerItems.applyPromotion(items);
+
+        assertEquals(0, total);
+
+
+    }
+
+    @Test
+    void combinationalPromotionTestWithCombinedProduct_without_Promption(){
+        Product product1 = new Product(20,"C");
+        Product product2 = new Product(15,"D");
+        Item item1 = new Item(product1,10);
+        Item item2 = new Item(product2,20);
+        List<Item> items = new ArrayList<>();
+        items.add(item1);
+        items.add(item2);
+
+        MultipleLinePromotionPrice combinationalPromotionPerItems = new MultipleLinePromotionPrice("C", "D", 30);
+
+        int total = combinationalPromotionPerItems.applyPromotion(items);
+
+        assertEquals(300, total);
 
 
     }
