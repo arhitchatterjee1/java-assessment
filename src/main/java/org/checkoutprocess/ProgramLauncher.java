@@ -39,7 +39,7 @@ public class ProgramLauncher {
 
         //scan the cart items
         for (Product product : products) {
-            System.out.println("how many products" + product.getSku() + " are there?");
+            System.out.println("how many products " + product.getSku() + " are there?");
             int qty = scanner.nextInt();
             if (qty > 0) {
                 items.add(new Item(product, qty));
