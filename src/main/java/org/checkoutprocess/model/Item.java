@@ -9,13 +9,6 @@ public class Item {
     private double unitPrice; // defines the unit level price of the product
     private double totalPrice; // defines the total price of the product
 
-    public Item(int quantity, Product product, double unitPrice, double totalPrice) {
-        this.quantity = quantity;
-        this.product = product;
-        this.unitPrice = unitPrice;
-        this.totalPrice = totalPrice;
-    }
-
     public double getUnitPrice() {
         return unitPrice;
     }
@@ -52,9 +45,8 @@ public class Item {
         return quantity;
     }
 
-    public int setQuantity(int quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
-        return quantity;
     }
 
 }
